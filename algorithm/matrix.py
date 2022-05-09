@@ -6,7 +6,7 @@ class Matrix:
     def __init__(self, matrix: list[Array]) -> None:
         self.grid = matrix
 
-    def solve_linear(self) -> list[int]:
+    def solve_linear(self) -> list[float]:
         grid = copy.deepcopy(self.grid)
         # Using elimination method
 
@@ -22,7 +22,7 @@ class Matrix:
                 grid[i] -= grid[index] * grid[i].values[index]
         
         # Return values
-        return
+        return [equation.values[-1] for equation in grid]
 
     def size(self) -> tuple[int, int]:
         return (len(self.grid), len(self.grid[0]))
