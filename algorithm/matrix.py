@@ -16,7 +16,13 @@ class Matrix:
             for i, eq in enumerate(grid[index + 1 :], index + 1):
                 grid[i].eliminate_value(grid[index])
 
-        print(grid)
+        # Reducing matrix to isolate coefficients
+        for index in range(len(grid) - 1, 0, -1):
+            for i in range(index):
+                grid[i] -= grid[index] * grid[i].values[index]
+        
+        # Return values
+        return
 
     def size(self) -> tuple[int, int]:
         return (len(self.grid), len(self.grid[0]))
